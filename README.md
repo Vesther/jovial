@@ -13,6 +13,12 @@
   <strong>A lovely zsh theme with responsive-design, it's pretty fast, keep simple but useful</strong>
 </p>
 
+## What the fork?
+
+This is the lovely jovial theme without a Node.js dependency.
+
+The [zsh-history-enquirer](https://github.com/zthxxx/zsh-history-enquirer) plugin is replaced by 🌸 [fzf](https://github.com/junegunn/fzf) with its zsh setup for [fuzzy completion](https://github.com/junegunn/fzf#fuzzy-completion-for-bash-and-zsh) and [history search](https://github.com/junegunn/fzf#key-bindings-for-command-line).
+
 ## Glance
 
 <p align="center">
@@ -121,7 +127,6 @@ It will detect to show your development programming language and version in curr
 - **[git](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git)**: some short alias for commonly used command
 - **[autojump](https://github.com/wting/autojump)**: make you can use `j <keyword>` to jump to the full path folder
 - **[bgnotify](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/bgnotify)**: background notifications for long running commands
-- **[zsh-history-enquirer](https://github.com/zthxxx/zsh-history-enquirer)**: widget for history searching, enhance `Ctrl+R`
 - **[zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)**: shell auto-completion
 - **[zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)**: user input syntax highlighting
 
@@ -201,7 +206,6 @@ sudo chsh -s `command -v zsh` $USER
 
 antigen theme zthxxx/jovial
 antigen bundle zthxxx/jovial
-antigen bundle zthxxx/zsh-history-enquirer
 
 antigen apply
 
