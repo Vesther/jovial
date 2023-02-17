@@ -32,7 +32,7 @@ So we make everything easy to use, even if you're new to zsh.
 First, **quick install** is convenient with only a simple one-line command:
 
 ```bash
-curl -sSL https://github.com/zthxxx/jovial/raw/master/installer.sh | sudo -E bash -s ${USER:=`whoami`}
+curl -sSL https://github.com/vesther/jovial/raw/master/installer.sh | sudo -E bash -s ${USER:=`whoami`}
 ```
 
 > for more install details see the **[Install section](#install)**; (manually install or without oh-my-zsh is okay)
