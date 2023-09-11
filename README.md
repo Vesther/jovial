@@ -217,6 +217,21 @@ antigen apply
 
 ### upgrade
 
+
+#### use antigen
+
+With used antigen, it's simple for update `jovial` theme by use `antigen update`:
+
+```bash
+antigen update zthxxx/jovial
+```
+
+But note that it's ONLY update the `jovial` theme, without any other plugins,
+
+to update other plugins, you need to use `antigen update` command on other plugin name again.
+
+#### use install script
+
 Due to the install script is designed to be **"Idempotent"**, if you want to upgrade the jovial theme, run the install command again.
 
 If you want to upgrade manually without the install command, just download and override `jovial.zsh-theme` file again.
@@ -408,6 +423,7 @@ JOVIAL_AFFIXES=(
     user.suffix            ' ${JOVIAL_PALETTE[conj.]}in'
 
     path.prefix            ' '
+    current-dir            '%~'
     path.suffix            ''
 
     dev-env.prefix         ' '
@@ -430,7 +446,7 @@ JOVIAL_AFFIXES=(
 )
 ```
 
-Note that `JOVIAL_AFFIXES` variable will be initialized once with `shell variable expansion` at first load as zsh prompt,
+Note that all `JOVIAL_AFFIXES` variable values wrapped in `${...}` will be subject to `shell Prompt-Expansion` once at first load as `zsh prompt`,
 
 so keep **Single Quotes** which you want override value in your `.zshrc` file,
 

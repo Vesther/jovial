@@ -2,7 +2,7 @@
 # https://github.com/zthxxx/jovial
 
 
-export JOVIAL_VERSION='2.4.0'
+export JOVIAL_VERSION='2.5.2'
 
 
 # Development code style:
@@ -139,6 +139,7 @@ typeset -ga JOVIAL_PROMPT_PRIORITY=(
 typeset -gi JOVIAL_EXEC_THRESHOLD_SECONDS=4
 
 # prefixes and suffixes of jovial prompt part
+# all values wrapped in `${...}` will be subject to `Prompt-Expansion` during initialization
 typeset -gA JOVIAL_AFFIXES=(
     host.prefix            '${JOVIAL_PALETTE[normal]}['
     # hostname/username use `Prompt-Expansion` syntax in default
@@ -152,6 +153,7 @@ typeset -gA JOVIAL_AFFIXES=(
     user.suffix            ' ${JOVIAL_PALETTE[conj.]}in'
 
     path.prefix            ' '
+    current-dir            '%~'
     path.suffix            ''
 
     dev-env.prefix         ' '
@@ -489,7 +491,7 @@ typeset -gA jovial_affix_lengths=()
 }
 
 @jov.set-current-dir() {
-    jovial_parts[path]="${(%):-%~}"
+    jovial_parts[path]="${(%):-${JOVIAL_AFFIXES[current-dir]}}"
 
     jovial_part_lengths[path]=$((
         ${#jovial_parts[path]}
@@ -651,6 +653,8 @@ typeset -gA jovial_affix_lengths=()
     if @jov.rev-parse-find "requirements.txt"; then
         if @jov.iscommand python; then
             local python_prompt="%F{123}`\python --version 2>&1`"
+        elif @jov.iscommand python3; then
+            local python_prompt="%F{123}`\python3 --version 2>&1`"
         else
             python_prompt_prefix="${JOVIAL_PALETTE[normal]}[${JOVIAL_PALETTE[error]}need "
             local python_prompt="Python${JOVIAL_PALETTE[normal]}]"
